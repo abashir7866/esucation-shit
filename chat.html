@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Comments and chats</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+      }
+      .chat {
+        background-color: #f1f1f1;
+        padding: 20px;
+        margin: 0 auto;
+        max-width: 500px;
+        border-radius: 10px;
+      }
+      .chat p {
+        background-color: #fff;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        margin: 10px 0;
+      }
+      .chat input[type="text"] {
+        width: 80%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        margin-right: 10px;
+      }
+      .chat input[type="submit"] {
+        background-color: #4CAF50;
+        color: #fff;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="chat">
+      <div id="messages"></div>
+      <form id="message-form">
+        <input type="text" id="message-input" placeholder="Type your message...">
+        <input type="submit" value="Send">
+      </form>
+    </div>
+    <script>
+      const messages = document.getElementById("messages");
+      const form = document.getElementById("message-form");
+      const input = document.getElementById("message-input");
+      
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const message = input.value;
+        input.value = "";
+        const messageElement = document.createElement("p");
+        messageElement.textContent = message;
+        messages.appendChild(messageElement);
+      });
+    </script>
+  </body>
+</html>
